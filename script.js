@@ -12,8 +12,10 @@ form.addEventListener('submit', function (event) {
     const sillas = parseInt(document.getElementById('sillas').value) || 0;
     const decoracion = document.getElementById('decoracion').value;
     const pasto = parseInt(document.getElementById('pasto').value) || 0;
-
-
+    const pista = parseInt(document.getElementById('pista').value) || 0;
+    const mesaMisXv = document.getElementById('mesaMisXv').checked;  // Si está marcado
+    const mesa15 = document.getElementById('mesa15').checked;
+    const mesaLove = document.getElementById('mesaLove').checked;
 
     //Definicion de los costos
     const costos = {
@@ -29,6 +31,7 @@ form.addEventListener('submit', function (event) {
     }
 
     const costoMetroPasto = 17;
+    const costoModuloPista = 250;
 
     let total = 0;
     let mensajeError = '';
@@ -54,6 +57,20 @@ form.addEventListener('submit', function (event) {
                 total += (pasto * 8) * costoMetroPasto;
             }
 
+            if(pista>0){
+                total+= pista * costoModuloPista;
+            }
+
+            if (mesaMisXv) {
+                total += 1500;
+            }
+            if (mesa15) {
+                total += 1000; 
+            }
+            if (mesaLove) {
+                total += 2000; 
+            }
+
             console.log(total);
         }
     } else if (mesas > metros) {
@@ -71,6 +88,10 @@ form.addEventListener('submit', function (event) {
         { label: `Servicio: ${servicio}`, value: servicio },
         { label: `Decoracion: ${decoracion} `, value: decoracion },
         { label: `Metros de pasto: ${pasto} `, value: pasto },
+        { label: `Modulos de pista: ${pista} `, value: pista },
+        { label: `1 Mesa MisXV con un trono`, value: mesaMisXv },
+        { label: `1 Mesa 15`, value: mesa15 },
+        { label: `1 Mesa LOVE con 2 tronos`, value: mesaLove },
     ];
     
     cotizacion.forEach(item => {

@@ -63,8 +63,33 @@
             </div>
 
             <div class="form-grupos">
-                <label for="sillas">Pasto Sintetico</label>
-                <input type="number" id="pasto" name="pasto" placeholder="Ej. 15" step="5">
+                <label for="pasto">Pasto Sintetico</label>
+                <input type="number" id="pasto" name="pasto" placeholder="Ej. 15" min="5" step="5">
+            </div>
+
+            <div class="form-grupos">
+                <label for="pista">Pista de Cristal</label>
+                <input type="number" id="pista" name="pista de cristal" min="9" placeholder="Ej. 9, 12 o 24">
+            </div>
+
+
+            <div class="form-grupos">
+                <p class="tituloE">Extras:</p>
+
+                <label>
+                    <input type="checkbox" id="mesaMisXv" name="mesa mis XV">
+                    <b>Mesa MisXV con trono</b>
+                </label>
+
+                <label>
+                    <input type="checkbox" id="mesa15" name="mesa 15 ">
+                    <b>Mesa 15 </b>
+                </label>
+
+                <label>
+                    <input type="checkbox" id="mesaLove" name="mesa love">
+                    <b>Mesa LOVE con 2 tronos</b>
+                </label>
             </div>
 
             <div class="button">
@@ -85,6 +110,10 @@
 
             <div class="resultado" id="resultado">
                 <p id="total"></p>
+            </div>
+
+            <div class="button">
+                <button type="button" value="enviar" class="enviar">Enviar Por Whatsapp</button>
             </div>
 
         </div>
