@@ -25,9 +25,9 @@ form.addEventListener('submit', function (event) {
     };
 
     const costosDecoraciones = {
-        normal: {metro: 50, completa:0 },
-        plafon: {metro: 0, completa: 3000},
-        flor: {metro: 0, completa: 1500}
+        normal: { metro: 50, completa: 0 },
+        plafon: { metro: 0, completa: 3000 },
+        flor: { metro: 0, completa: 1500 }
     }
 
     const costoMetroPasto = 17;
@@ -45,7 +45,7 @@ form.addEventListener('submit', function (event) {
 
             if (costosDecoraciones[decoracion]) {
                 if (decoracion === 'normal') {
-                    total += metros * costosDecoraciones[decoracion].metro;  
+                    total += metros * costosDecoraciones[decoracion].metro;
                 } else {
                     total += costosDecoraciones[decoracion].completa;
                 }
@@ -53,22 +53,22 @@ form.addEventListener('submit', function (event) {
 
             console.log(total);
 
-            if(pasto>0){
+            if (pasto > 0) {
                 total += (pasto * 8) * costoMetroPasto;
             }
 
-            if(pista>0){
-                total+= pista * costoModuloPista;
+            if (pista > 0) {
+                total += pista * costoModuloPista;
             }
 
             if (mesaMisXv) {
                 total += 1500;
             }
             if (mesa15) {
-                total += 1000; 
+                total += 1000;
             }
             if (mesaLove) {
-                total += 2000; 
+                total += 2000;
             }
 
             console.log(total);
@@ -93,7 +93,7 @@ form.addEventListener('submit', function (event) {
         { label: `1 Mesa 15`, value: mesa15 },
         { label: `1 Mesa LOVE con 2 tronos`, value: mesaLove },
     ];
-    
+
     cotizacion.forEach(item => {
         if (item.value > 0 || item.value) {
             listaElement.append(item.label, document.createElement('br'));
@@ -102,5 +102,22 @@ form.addEventListener('submit', function (event) {
 
     totalElement.textContent = mensajeError || `${total}`
 
+
+});
+
+document.getElementById('enviarCotizacion').addEventListener('click', function () {
+
+    const listaElement = document.getElementById('lista-productos');
+    const mensajeBase = listaElement.textContent.trim();
+    const totalElementC = document.getElementById('total').textContent; 
+
+    const mensaje = `${mensajeBase}\nTotal: $${totalElementC}`;
+
+    const mensajeCodificado = encodeURIComponent(mensaje);
+
+    const enlaceWhatsApp = `https://wa.me/?text=${mensajeCodificado}`;
+
+    window.open(enlaceWhatsApp, '_blank');
+    
 
 });
