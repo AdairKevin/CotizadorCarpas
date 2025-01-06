@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <nav class="navbar">
+
+    </nav>
+
+    <div class="container">
+
+        <form action="#" method="post">
+
+            <div class="container-header">
+                <h1>Formulario de Cotizacion</h1>
+            </div>
+
+            <div class="form-grupos">
+                <label for="metros">Metros de carpa</label>
+                <input type="number" id="metros" name="metros" placeholder="Ej. 15" required min="5" max="100" step="5">
+            </div>
+
+            <div class="form-grupos">
+                <p>Servicio de carpa</p>
+                <label for="servicio">
+                    <select name="servicio" id="servicio" class="servicio" required>
+                        <option disabled value="">Seleciona un servicio</option>
+                        <option selected value="normal">Normal</option>
+                        <option value="frances">Frances</option>
+                        <option value="imperial">Imperial</option>
+                    </select>
+                </label>
+            </div>
+
+            <div class="form-grupos">
+                <label for="mesas">Cantidad De Mesas</label>
+                <input type="number" id="mesas" name="mesas" placeholder="Ej. 15">
+            </div>
+
+            <div class="form-grupos">
+                <label for="sillas">Cantidad De Sillas</label>
+                <input type="number" id="sillas" name="sillas" placeholder="Ej. 150" step="10">
+            </div>
+
+            <div class="form-grupos">
+                <p>Decoracion</p>
+                <label for="servicio">
+                    <select name="decoracion" id="decoracion" class="servicio" required>
+                        <option disabled value="">Seleciona una decoracion</option>
+                        <option selected value="sin decoracion">Sin decoracion</option>
+                        <option value="normal">Normal</option>
+                        <option value="flor">Flor Sencilla</option>
+                        <option value="plafon">Plafon Arabe</option>
+                    </select>
+                </label>
+            </div>
+
+            <div class="form-grupos">
+                <label for="sillas">Pasto Sintetico</label>
+                <input type="number" id="pasto" name="pasto" placeholder="Ej. 15" step="5">
+            </div>
+
+            <div class="button">
+                <button type="submit" value="cotizar">Cotizar</button>
+            </div>
+
+        </form>
+
+        <div class="total-container">
+
+            <p class="titulo">Productos seleccionados:</p>
+
+            <div class="resultado" id="lista">
+                <p id="lista-productos"></p>
+            </div>
+            
+            <p class="titulo">Total:</p>
+
+            <div class="resultado" id="resultado">
+                <p id="total"></p>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
