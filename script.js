@@ -21,7 +21,7 @@ form.addEventListener('submit', function (event) {
     const costos = {
         normal: { metro: 240, mesa: 0 },
         frances: { metro: 240, mesa: 80 },
-        imperial: { metro: 240, mesa: 450 }
+        imperial: { metro: 240, mesa: 460 }
     };
 
     const costosDecoraciones = {
