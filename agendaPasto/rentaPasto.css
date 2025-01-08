@@ -27,7 +27,7 @@ form{
     border: 1rem;
     box-shadow: 0 1rem 1rem rgba(0, 0, 0, 0.2);
     background-color: rgba(255, 255, 255, 0.6);
-    width: 70%;
+    width: 75%;
     padding: 2rem;
     border-radius: 10px;
 }
@@ -85,7 +85,7 @@ button:hover{
     border: 1rem;
     box-shadow: 0 1rem 1rem rgba(0, 0, 0, 0.2);
     background-color: rgba(255, 255, 255, 0.6);
-    width: 70%;
+    width: 75%;
     padding: 2rem;
     border-radius: 10px;
 }
@@ -117,15 +117,7 @@ button:hover{
     border: 1rem;
     box-shadow: 0 1rem 1rem rgba(0, 0, 0, 0.2);
     background-color: rgba(255, 255, 255, 0.6);
-    width: 70%;
+    width: 75%;
     padding: 2rem;
     border-radius: 10px;
-}
-
-table{
-    
-}
-
-th{
-    border: 1px solid #000000;
 }
