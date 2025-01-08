@@ -86,7 +86,7 @@ form.addEventListener('submit', function (event) {
         { label: `Cantidad de mesas: ${mesas}`, value: mesas },
         { label: `Cantidad de sillas: ${sillas} `, value: sillas },
         { label: `Servicio: ${servicio}`, value: servicio },
-        { label: `Decoracion: ${decoracion} 8 x ${metros}  `, value: decoracion },
+        { label: `Decoracion: ${decoracion}`, value: decoracion },
         { label: `Metros de pasto: ${pasto} `, value: pasto },
         { label: `Modulos de pista: ${pista} `, value: pista },
         { label: `1 Mesa MisXV con un trono`, value: mesaMisXv },
