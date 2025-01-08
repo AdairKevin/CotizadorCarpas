@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="rentaPasto.css">
+    <title>Document</title>
+</head>
+<body>
+    
+    <div class="container">
+
+        <form action="#" method="post">
+
+            <div class="container-header">
+                <h1>Renta de Pasto</h1>
+            </div>
+
+
+            <div class="form-grupos">  
+                <label for="fecha">Fecha:</label>
+                <input type="datetime-local" name="fecha" id="fecha" required>
+            </div>
+
+            <div class="form-grupos">
+                <label for="metrosPasto">Metros de pasto: </label>
+                <input type="number" name="metrosPasto" id="metrosPasto" required step="5" min="5"> 
+            </div>
+
+            <div class="form-grupos">
+                <label for="precio">Precio</label>
+                <input type="number" name="precio" id="precio" required>   
+            </div>
+
+            <div class="button">
+                <button type="button">Cotizar</button>
+                <button type="submit">Agendar</button>
+            </div>
+
+        </form>
+
+        <div class="total-container" id="cotizacion">
+ 
+            <p class="titulo">Total:</p>
+
+            <div class="resultado" id="resultado">
+                <p id="total"></p>
+            </div>
+
+        </div>
+
+
+    </div>
+
+    <div class="tabla">
+        <table>
+            <thead>
+                <tr>
+                    <th>Fecha</th>
+                    <th>Metros</th>
+                    <th>precio</th>
+                    <th>total</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+
+            </tbody>
+        </table>
+    </div>
+
+    <script src="rentaPasto.js"></script>
+</body>
+</html>
