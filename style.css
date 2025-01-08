@@ -1,14 +1,113 @@
+*{
+    text-decoration: none;
+    list-style: none;
+}
+
 body{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    background: rgb(255, 187, 0);
-    background: linear-gradient(90deg, rgb(174, 58, 180, 1)0%,
-    rgb(63, 190, 251, 1)50%,
-    rgb(174, 58, 180, 1)100%);
+    background-color: #F2A172;
+    background: linear-gradient(90deg, rgba(242, 232, 194, 1)0%,
+    rgb(217, 163, 98)50%,
+    rgba(166, 119, 78, 1)100%);
     color: #0D0D0D;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     overflow-x: hidden;
+}
+
+nav{
+    height: 55px;
+    width: 100%;
+    padding: 5px;
+}
+
+nav ul{
+    float: right;
+    margin-right: 20px;
+}
+
+nav ul li{
+    display: inline-block;
+    margin: 0 5px;
+}
+
+nav ul li a{
+    color: #F2F2F2;
+    font-size: 18px;
+    padding: 5px 9px;
+    border-radius: 3px;
+    text-transform: uppercase;
+}
+
+li a.active, li a:hover{
+    background: #A6774E;
+}
+
+.checkbtn{
+    font-size: 20px;
+    color: #402C25;
+    float: left;
+    margin-left: 10px;
+    padding: 0px;
+    cursor: pointer;
+    display: none;
+}
+
+#check{
+    display: none;
+}
+
+@media (max-width: 952px) {
+    nav ul li a{
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 858px) {
+
+    nav{
+        display: flex;
+        align-items: center;
+    }
+
+    .checkbtn{
+        display: block;
+    }
+
+    ul{
+        position: fixed;
+        width: 100%;
+        height: 100vh;
+        padding: 0;
+        background: linear-gradient(90deg, rgba(242, 232, 194, 1)0%,
+        rgb(217, 163, 98)50%,
+        rgba(166, 119, 78, 1)100%);
+        top: 43px;
+        left: -200%;
+        text-align: center;
+        transition: all .2s ease;
+    }
+
+    nav ul li{
+        display: block;
+        margin: 70px 0;
+        line-height: 30px;
+    }
+
+    nav ul li a{
+        font-size: 20px;
+    }
+
+    li a.active, li a:hover{
+        background: none;
+        color: #73503C;
+    }
+
+    #check:checked ~ul{
+        left: 0%;
+    }
+    
 }
 
 .container-header{
@@ -37,7 +136,8 @@ form{
 .form-grupos{
     display: flex;
     flex-direction: column;
-    font-size: 20px;
+    font-size: 18px;
+    font-weight: bold;
     font-family: sans-serif;
     margin-bottom: 2%;
 }
@@ -49,7 +149,7 @@ form{
 
 input[type="number"]{
     margin: 15px 0;
-    font-size: 18px;
+    font-size: 15px;
     padding: 12px;
     border: none;
     border-radius: 5px;
@@ -58,29 +158,36 @@ input[type="number"]{
 }
 
 input[type="number"]:hover{
-    border: 2px solid #0D0D0D;
+    border: 2px solid #73503C;
+}
+
+select:hover{
+    border: 2px solid #73503C;
 }
 
 .servicio{
     margin: 15px 0;
-    font-size: 18px;
+    font-size: 15px;
     padding: 12px;
     border: none;
     border-radius: 5px;
-    color: #0D0D0D;
+    color: #000000;
     width: 100%;
 }
 
 input[type="checkbox"]{
     margin-bottom: 15px;
     margin-top: 15px;
-    font-size: 18px;
     color: #0D0D0D;
     font-weight: 100;
 }
 
+b{
+    font-size: 15px;
+}
+
 button{
-    background: rgb(0, 0, 0);
+    background: #402C25;
     margin: 15px 0;
     font-size: 20px;
     padding: 12px;
@@ -93,7 +200,7 @@ button{
 }
 
 button:hover{
-    background: rgb(174, 58, 180);
+    background: #73503C;
     color: #F2F2F2;
     cursor: pointer;
 }
@@ -135,17 +242,17 @@ button:hover{
 }
 
 .enviar:hover{
-    background-color: rgb(3, 58, 1);
+    background-color: rgb(9, 77, 7);
 }
 
 /*Estilos para pantallas grandes*/
 @media (min-width: 1025px) {
     form{
-        width: 40%;
+        width: 30%;
     }
 
     .total-container{
-        width: 40%;
+        width: 30%;
     }
     
 }
