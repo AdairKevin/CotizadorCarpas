@@ -1,28 +1,29 @@
-body{
+body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     background-color: #F2A172;
     background: linear-gradient(90deg, rgba(242, 232, 194, 1)0%,
-    rgb(217, 163, 98)50%,
-    rgba(166, 119, 78, 1)100%);
+            rgb(217, 163, 98)50%,
+            rgba(166, 119, 78, 1)100%);
     color: #0D0D0D;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-.container-header{
+
+.container-header {
     color: #000000;
     text-align: center;
     width: 100%;
     margin-bottom: 35px
 }
 
-h1{
+h1 {
     margin-top: 0;
     margin-bottom: 0;
 }
 
-form{
+form {
     margin: 20px auto;
     border: 1rem;
     box-shadow: 0 1rem 1rem rgba(0, 0, 0, 0.2);
@@ -32,7 +33,7 @@ form{
     border-radius: 10px;
 }
 
-.form-grupos{
+.form-grupos {
     display: flex;
     flex-direction: column;
     font-size: 18px;
@@ -41,7 +42,8 @@ form{
     margin-bottom: 2%;
 }
 
-input[type="number"], input[type="datetime-local"]{
+input[type="number"],
+input[type="datetime-local"] {
     margin: 15px 0;
     font-size: 15px;
     padding: 12px;
@@ -51,17 +53,17 @@ input[type="number"], input[type="datetime-local"]{
     transition: all 0.3 ease;
 }
 
-input[type="number"]:hover{
+input[type="number"]:hover {
     border: 2px solid #73503C;
 }
 
-.button{
+.button {
     display: flex;
     flex-direction: row;
     gap: 10px;
 }
 
-button{
+button {
     background: #402C25;
     margin: 15px 0;
     font-size: 20px;
@@ -74,13 +76,13 @@ button{
     transition: all 0.3 ease;
 }
 
-button:hover{
+button:hover {
     background: #73503C;
     color: #F2F2F2;
     cursor: pointer;
 }
 
-.total-container{
+.total-container {
     margin: 20px auto;
     border: 1rem;
     box-shadow: 0 1rem 1rem rgba(0, 0, 0, 0.2);
@@ -90,7 +92,7 @@ button:hover{
     border-radius: 10px;
 }
 
-.titulo{
+.titulo {
     width: 100%;
     margin: 0;
     font-size: 20px;
@@ -99,20 +101,20 @@ button:hover{
     margin-bottom: 10px;
 }
 
-.resultado{
+.resultado {
     width: 100%;
     height: auto;
     font-size: 20px;
 }
 
-.resultado p{
+.resultado p {
     padding: 0px;
-    margin:10px;
+    margin: 10px;
     margin-left: 0px;
     font-size: 18px;
 }
 
-.tabla{
+.tabla {
     margin: 20px auto;
     border: 1rem;
     box-shadow: 0 1rem 1rem rgba(0, 0, 0, 0.2);
@@ -120,4 +122,98 @@ button:hover{
     width: 75%;
     padding: 2rem;
     border-radius: 10px;
+}
+
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #ffffff;
+    margin: 0;
+    padding: 0;
+
+    button {
+        padding: 8px 0px;
+        background-color: #402C25;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 15px;
+    }
+}
+
+thead th {
+    font-size: 15px;
+    text-transform: uppercase;
+    background-color: rgb(217, 163, 98);
+    color: #ffffff;
+    font-weight: bold;
+    text-align: left;
+    padding: 8px;
+    border-bottom: 2px solid rgb(217, 163, 98);
+}
+
+tbody td {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    font-size: 15px;
+}
+
+tbody tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* Alineación de los botones */
+td:last-child {
+    width: auto;
+    display: flex;
+    gap: 10px;
+    /* Espacio entre los botones */
+}
+
+
+@media (max-width: 600px) {
+    table {
+        border: 0px;
+        font-size: 14px;
+        border-radius: 10px;
+        /* Reducir el tamaño del texto en pantallas pequeñas */
+    }
+
+    thead {
+        display: none;
+        /* Ocultar encabezados de la tabla en móviles */
+    }
+
+    table tr{
+        margin-bottom: 8px;
+        border-bottom: 4px solid #ddd;
+        display: block;
+    }
+
+    table td{
+        display: block;
+        border-bottom: 1px solid #ddd;
+        text-align: right;
+    } 
+
+    tbody td::before {
+        content: attr(data-label); /* Usar los atributos para mostrar encabezados */
+        font-weight: bold;
+        text-transform: uppercase;
+        float: left;
+    }
+
+    td:last-child {
+    padding: 0;
+    margin-left: -5px;
+    width: 100%; /* Asegúrate de que ocupe todo el ancho */
+    display: flex;
+    justify-content: center; /* Centra los botones horizontalmente */
+    align-items: center; /* Centra los botones verticalmente */
+    gap: 10px; /* Espacio entre los botones */
+        
+    }
 }
