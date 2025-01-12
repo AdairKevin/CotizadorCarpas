@@ -55,7 +55,7 @@ async function obtenerRentas() {
 
       // Crear una celda para acciones (puedes personalizarla después)
       const celdaAcciones = document.createElement("td");
-      celdaAcciones.innerHTML = `<button>Editar</button> <button>Eliminar</button>`;
+      celdaAcciones.innerHTML = `<button class="editar">Editar</button> <button class="eliminar">Eliminar</button>`;
 
       // Añadir las celdas a la fila
       fila.appendChild(celdaFecha);
