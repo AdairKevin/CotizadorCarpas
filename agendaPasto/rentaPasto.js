@@ -1,18 +1,38 @@
-const form =  document.querySelector('form');
+const form = document.querySelector('form');
+const totalElement = document.getElementById('total');
 
-form.addEventListener('submit', function(event){
+form.addEventListener('submit', function (event) {
 
-    event.preventDefault();
+  event.preventDefault();
 
-    const fecha = document.getElementById('fecha').value;
-    const metros = parseInt(document.getElementById('metrosPasto').value) || 0;
-    const precio = parseInt(document.getElementById('precio').value) || 0;
+  const fecha = document.getElementById('fecha').value;
+  const metros = parseInt(document.getElementById('metrosPasto').value) || 0;
+  const precio = parseInt(document.getElementById('precio').value) || 0;
 
-    console.log(fecha, metros, precio)
+  
 
 });
 
+document.getElementById('cotizar').addEventListener('click', function () {
 
+
+  const metros = parseInt(document.getElementById('metrosPasto').value) || 0;
+  const precio = parseInt(document.getElementById('precio').value) || 0;
+
+
+  let total = 0;
+  let mensajeError = '';
+
+  if (metros && precio) {
+    total = (metros * 8) * precio;
+  }else{
+    mensajeError = 'Los valores tienen que ser mayores a 0'
+  }
+
+  totalElement.textContent = total || mensajeError;
+
+
+});
 
 const tablaBody = document.querySelector(".tabla tbody");
 
@@ -72,7 +92,7 @@ async function obtenerRentas() {
     console.error("Error al consumir la API:", error.message);
   }
 
-  
+
 }
 
 obtenerRentas();
