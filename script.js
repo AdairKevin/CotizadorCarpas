@@ -13,9 +13,14 @@ form.addEventListener('submit', function (event) {
     const decoracion = document.getElementById('decoracion').value;
     const pasto = parseInt(document.getElementById('pasto').value) || 0;
     const pista = parseInt(document.getElementById('pista').value) || 0;
-    const mesaMisXv = document.getElementById('mesaMisXv').checked;  // Si está marcado
+    const mesaMisXv = document.getElementById('mesaMisXv').checked; 
     const mesa15 = document.getElementById('mesa15').checked;
     const mesaLove = document.getElementById('mesaLove').checked;
+    const invitacion = document.getElementById('invitacion').checked;
+    const juegos = document.getElementById('juegos').checked;
+    const baños = document.getElementById('baños').checked;
+    const loza = parseInt(document.getElementById('loza').value) || 0;
+    const meseros = parseInt(document.getElementById('meseros').value) || 0;
 
     //Definicion de los costos
     const costos = {
@@ -32,6 +37,8 @@ form.addEventListener('submit', function (event) {
 
     const costoMetroPasto = 17;
     const costoModuloPista = 250;
+    const costoLoza = 17;
+    const costoMesero = 350;
 
     let total = 0;
     let mensajeError = '';
@@ -61,6 +68,14 @@ form.addEventListener('submit', function (event) {
                 total += pista * costoModuloPista;
             }
 
+            if (loza > 0){
+                total += loza * costoLoza;
+            }
+
+            if (meseros > 0){
+                total += meseros * costoMesero;
+            }
+
             if (mesaMisXv) {
                 total += 1500;
             }
@@ -69,6 +84,18 @@ form.addEventListener('submit', function (event) {
             }
             if (mesaLove) {
                 total += 2000;
+            }
+
+            if (invitacion){
+                total += 400;
+            }
+
+            if (juegos){
+                total += 600;
+            }
+
+            if (baños){
+                total += 2200;
             }
 
             console.log(total);
@@ -92,6 +119,11 @@ form.addEventListener('submit', function (event) {
         { label: `1 Mesa MisXV con un trono`, value: mesaMisXv },
         { label: `1 Mesa 15`, value: mesa15 },
         { label: `1 Mesa LOVE con 2 tronos`, value: mesaLove },
+        { label: `1 Invitacion Digital`, value: invitacion },
+        { label: `1 Baños Moviles`, value: baños },
+        { label: `1 Juego`, value: juegos },
+        { label: `Meseros: ${meseros}`, value: meseros },
+        { label: `Loza para: ${loza} personas`, value: loza },
     ];
 
     cotizacion.forEach(item => {
@@ -111,7 +143,7 @@ document.getElementById('enviarCotizacion').addEventListener('click', function (
     const mensajeBase = listaElement.textContent.trim();
     const totalElementC = document.getElementById('total').textContent; 
 
-    const mensaje = `${mensajeBase}\nTotal: $${totalElementC}`;
+    const mensaje = `Le tengo la siguiente cotizacion: \n${mensajeBase}\n Total: $${totalElementC}`;
 
     const mensajeCodificado = encodeURIComponent(mensaje);
 
