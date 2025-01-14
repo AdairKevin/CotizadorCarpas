@@ -58,7 +58,7 @@ async function obtenerRentas() {
       celdaPrecio.setAttribute("data-label", "Precio");
 
       const celdaTotal = document.createElement("td");
-      celdaTotal.textContent = (item.metros * 8) * 17;
+      celdaTotal.textContent = item.total;
       celdaTotal.setAttribute("data-label", "Total");
 
       // Crear una celda para acciones (puedes personalizarla después)
@@ -68,6 +68,111 @@ async function obtenerRentas() {
       botonEditar.textContent = "Editar";
       botonEditar.classList.add("editar");
       botonEditar.setAttribute("data-id", item.id);
+
+      botonEditar.addEventListener("click", () => {
+        idRegistroActual = item.id;
+        // Llenar el formulario con los valores del objeto item
+        document.querySelector("#fecha").value = fechaFormateada; // Fecha formateada
+        document.querySelector("#metrosPasto").value = item.metros;    // Metros
+        document.querySelector("#precio").value = item.precio;    // Precio
+
+        // Guardar el ID en un atributo oculto en el formulario para futuras actualizaciones
+        document.querySelector("form").setAttribute("data-id", item.id);
+
+        const botonCotizar = document.querySelector("#cotizar");
+        const botonAgendar = document.querySelector("#agendar");
+
+        botonCotizar.style.display = "none";
+        botonAgendar.style.display = "none";
+
+        let botonGuardar = document.querySelector("#botonGuardar");
+        if (!botonGuardar) {
+          botonGuardar = document.createElement("button");
+          botonGuardar.id = "botonGuardar";
+          botonGuardar.textContent = "Guardar";
+          botonGuardar.type = "button";
+          botonGuardar.style.backgroundColor = "green";
+          botonGuardar.style.color = "white";
+          botonGuardar.style.marginTop = "10px";
+
+          // Agregar evento para guardar los cambios
+          botonGuardar.addEventListener("click", guardarCambios);
+
+          // Insertar el botón en el formulario
+          const formulario = document.querySelector("form");
+          formulario.appendChild(botonGuardar);
+        }
+
+      });
+
+      async function guardarCambios() {
+
+        // Obtener los datos del formulario
+        const fecha = document.querySelector("#fecha").value;
+        const metros = parseInt(document.querySelector("#metrosPasto").value);
+        const precio = parseInt(document.querySelector("#precio").value);
+
+        let total = (metros * 8) * precio;
+      
+        // Construir el objeto con los datos actualizados
+        const datosActualizados = {
+          fecha,
+          metros: parseInt(metros),
+          precio: parseFloat(precio),
+          total: total
+        };
+
+        console.log("Datos a enviar:", datosActualizados);
+        console.log("URL de la API:", `${apiUrl}/${idRegistroActual}`);
+      
+        try {
+          // Hacer la solicitud PUT a la API
+          const response = await fetch(`${apiUrl}/${idRegistroActual}`, {
+            method: "PATCH",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(datosActualizados),
+          });
+      
+          if (!response.ok) {
+            throw new Error(`Error al actualizar el registro: ${response.status}`);
+          }
+      
+          alert("Registro actualizado exitosamente.");
+      
+      
+          // Restaurar el formulario a su estado inicial
+          resetFormulario();
+
+        } catch (error) {
+          console.error("Error al actualizar el registro:", error);
+          alert("Ocurrió un error al intentar actualizar el registro.");
+        }
+      }
+      
+      // Función para restaurar el formulario a su estado inicial
+      function resetFormulario() {
+        document.querySelector("#fecha").value = "";
+        document.querySelector("#metrosPasto").value = "";
+        document.querySelector("#precio").value = "";
+      
+        // Restaurar botones originales
+        const botonCotizar = document.querySelector("#cotizar");
+        const botonAgendar = document.querySelector("#agendar");
+        botonCotizar.style.display = "inline-block";
+        botonAgendar.style.display = "inline-block";
+      
+        // Eliminar el botón "Guardar"
+        const botonGuardar = document.querySelector("#botonGuardar");
+        if (botonGuardar) {
+          botonGuardar.remove();
+        }
+      
+        // Limpiar el ID del registro actual
+        idRegistroActual = null;
+      }
+
       // Botón Eliminar
       const botonEliminar = document.createElement("button");
       botonEliminar.textContent = "Eliminar";
@@ -92,8 +197,6 @@ async function obtenerRentas() {
   } catch (error) {
     console.error("Error al consumir la API:", error.message);
   }
-
-
 }
 
 obtenerRentas();
@@ -176,5 +279,6 @@ tablaBody.addEventListener("click", async (event) => {
       console.error("Error al conectar con la API:", error);
       alert("Hubo un problema al eliminar el registro.");
     }
-  }
+  } 
 });
+

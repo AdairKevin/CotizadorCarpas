@@ -47,7 +47,7 @@ form {
 }
 
 input[type="number"],
-input[type="datetime-local"] {
+input[type="date"] {
     margin: 15px 0;
     font-size: 15px;
     padding: 12px;
