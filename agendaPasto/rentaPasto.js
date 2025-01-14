@@ -67,16 +67,11 @@ async function obtenerRentas() {
       const botonEditar = document.createElement("button");
       botonEditar.textContent = "Editar";
       botonEditar.classList.add("editar");
-      botonEditar.style.backgroundColor = "blue";
-      botonEditar.style.color = "white";
-      botonEditar.style.marginRight = "5px";
-
+      botonEditar.setAttribute("data-id", item.id);
       // Botón Eliminar
       const botonEliminar = document.createElement("button");
       botonEliminar.textContent = "Eliminar";
       botonEliminar.classList.add("eliminar");
-      botonEliminar.style.backgroundColor = "red";
-      botonEliminar.style.color = "white";
       botonEliminar.setAttribute("data-id", item.id); // Agregar atributo data-id con el ID del registro
 
       // Agregar botones a la celda de acciones
@@ -183,6 +178,3 @@ tablaBody.addEventListener("click", async (event) => {
     }
   }
 });
-
-
-
