@@ -1,18 +1,116 @@
 * {
+    text-decoration: none;
+    list-style: none;
+}
+
+body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    overflow-x: hidden;
-}
-
-body {
     background-color: #F2A172;
     background: linear-gradient(90deg, rgba(242, 232, 194, 1)0%,
             rgb(217, 163, 98)50%,
             rgba(166, 119, 78, 1)100%);
     color: #0D0D0D;
+    overflow-x: hidden;
 }
+
+nav{
+    height: 55px;
+    width: 100%;
+    padding: 5px;
+    
+}
+
+nav ul{
+    float: right;
+    margin-right: 20px;
+}
+
+nav ul li{
+    display: inline-block;
+    margin: 0 5px;
+}
+
+nav ul li a{
+    color: #F2F2F2;
+    font-size: 18px;
+    padding: 5px 9px;
+    border-radius: 3px;
+    text-transform: uppercase;
+}
+
+li a.active, li a:hover{
+    background: #A6774E;
+}
+
+.checkbtn{
+    font-size: 20px;
+    color: #402C25;
+    float: left;
+    margin-left: 10px;
+    padding: 0px;
+    cursor: pointer;
+    display: none;
+}
+
+#check{
+    display: none;
+}
+
+@media (max-width: 952px) {
+    nav ul li a{
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 858px) {
+
+    nav{
+        display: flex;
+        align-items: center;
+    }
+
+    .checkbtn{
+        display: block;
+    }
+
+    ul{
+        position: fixed;
+        width: 100%;
+        height: 100vh;
+        padding: 0;
+        background: linear-gradient(90deg, rgba(242, 232, 194, 1)0%,
+        rgb(217, 163, 98)50%,
+        rgba(166, 119, 78, 1)100%);
+        top: 43px;
+        left: -200%;
+        text-align: center;
+        transition: all .2s ease;
+    }
+
+    nav ul li{
+        display: block;
+        margin: 70px 0;
+        line-height: 30px;
+    }
+
+    nav ul li a{
+        font-size: 20px;
+    }
+
+    li a.active, li a:hover{
+        background: none;
+        color: #73503C;
+    }
+
+    #check:checked ~ul{
+        left: 0%;
+    }
+    
+}
+
 
 /*Estilos Formulario*/
 .container-header {
