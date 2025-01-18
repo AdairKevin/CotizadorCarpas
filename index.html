@@ -1,162 +1,195 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
     <title>Cotizador</title>
-</head>
+  </head>
 
-<body>
-
+  <body>
     <nav class="navbar">
-        <input type="checkbox" id="check">
-        <label for="check" class="checkbtn">
-            <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
-                <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5"/>
-              </svg>
-        </label>
+      <input type="checkbox" id="check" />
+      <label for="check" class="checkbtn">
+        <i class="bi bi-list"></i>
+      </label>
 
-        <ul>
-            <li><a class="active" href="#">Cotizador</a></li>
-            <li><a href="agendaPasto/rentaPasto.html">Rentas de Pasto</a></li>
-            <li><a href="#">Rentas de Loza</a></li>
-        </ul>
+      <ul>
+        <li><a class="active" href="#">Cotizador</a></li>
+        <li><a href="agendaPasto/rentaPasto.html">Rentas de Pasto</a></li>
+        <li><a href="#">Rentas de Loza</a></li>
+      </ul>
     </nav>
 
     <div class="container">
-
-        <form action="#" method="post">
-
-            <div class="container-header">
-                <h1>Formulario de Cotizacion</h1>
-            </div>
-
-            <div class="form-grupos">
-                <label for="metros">Metros de carpa</label>
-                <input type="number" id="metros" name="metros" placeholder="Ej. 15" required min="5" max="100" step="5">
-            </div>
-
-            <div class="form-grupos">
-                <p>Servicio de carpa</p>
-                <label for="servicio">
-                    <select name="servicio" id="servicio" class="servicio" required>
-                        <option disabled value="">Seleciona un servicio</option>
-                        <option selected value="normal">Normal</option>
-                        <option value="frances">Frances</option>
-                        <option value="imperial">Imperial</option>
-                    </select>
-                </label>
-            </div>
-
-            <div class="form-grupos">
-                <label for="mesas">Cantidad De Mesas</label>
-                <input type="number" id="mesas" name="mesas" placeholder="Ej. 15">
-            </div>
-
-            <div class="form-grupos">
-                <label for="sillas">Cantidad De Sillas</label>
-                <input type="number" id="sillas" name="sillas" placeholder="Ej. 150" step="10">
-            </div>
-
-            <div class="form-grupos">
-                <p>Decoracion</p>
-                <label for="servicio">
-                    <select name="decoracion" id="decoracion" class="servicio" required>
-                        <option disabled value="">Seleciona una decoracion</option>
-                        <option selected value="sin decoracion">Sin decoracion</option>
-                        <option value="normal">Normal</option>
-                        <option value="flor">Flor Sencilla</option>
-                        <option value="plafon">Plafon Arabe</option>
-                    </select>
-                </label>
-            </div>
-
-            <div class="form-grupos">
-                <label for="pasto">Pasto Sintetico</label>
-                <input type="number" id="pasto" name="pasto" placeholder="Ej. 15" min="5" step="5">
-            </div>
-
-            <div class="form-grupos">
-                <label for="pista">Pista de Cristal</label>
-                <input type="number" id="pista" name="pista de cristal" min="9" placeholder="Ej. 9, 12 o 24">
-            </div>
-
-            <div class="form-grupos">
-                <label for="loza">Loza y cristaleria</label>
-                <input type="number" id="loza" name="loza" placeholder="Ej. 300 personas">
-            </div>
-
-            <div class="form-grupos">
-                <label for="loza">Meseros</label>
-                <input type="number" id="meseros" name="meseros" placeholder="Ej. 10 meseros">
-            </div>
-
-            <div class="form-grupos">
-                <p class="tituloE">Extras:</p>
-
-                <label>
-                    <input type="checkbox" id="invitacion" name="invitacion digital">
-                    <b>Invitacion Digital</b>
-                </label>
-
-                <label>
-                    <input type="checkbox" id="mesaMisXv" name="mesa mis XV">
-                    <b>Mesa MisXV con trono</b>
-                </label>
-
-                <label>
-                    <input type="checkbox" id="mesa15" name="mesa 15 ">
-                    <b>Mesa 15 </b>
-                </label>
-
-                <label>
-                    <input type="checkbox" id="mesaLove" name="mesa love">
-                    <b>Mesa LOVE con 2 tronos</b>
-                </label>
-
-                <label>
-                    <input type="checkbox" id="baños" name="baños moviles">
-                    <b>Baños Moviles</b>
-                </label>
-
-                <label>
-                    <input type="checkbox" id="juegos" name="juegos">
-                    <b>Juegos (Inflable, rockola, etc.)</b>
-                </label>
-                
-
-            </div>
-
-            <div class="button">
-                <button type="submit" value="cotizar">Cotizar</button>
-            </div>
-
-        </form>
-
-        <div class="total-container" id="cotizacionParaEnviar">
-
-            <p class="titulo">Productos seleccionados:</p>
-
-            <div class="resultado" id="lista">
-                <p id="lista-productos"></p>
-            </div>
-            
-            <p class="titulo">Total:</p>
-
-            <div class="resultado" id="resultado">
-                <p id="total"></p>
-            </div>
-
-            <div class="button">
-                <button type="button" value="enviar" class="enviar" id="enviarCotizacion">Enviar Por Whatsapp</button>
-            </div>
-
+      <form action="#" method="post">
+        <div class="container-header">
+          <h1>Formulario de Cotizacion</h1>
         </div>
+
+        <div class="form-grupos">
+          <label for="metros">Metros de carpa</label>
+          <input
+            type="number"
+            id="metros"
+            name="metros"
+            placeholder="Ej. 15"
+            required
+            min="5"
+            max="100"
+            step="5"
+          />
+        </div>
+
+        <div class="form-grupos">
+          <p>Servicio de carpa</p>
+          <label for="servicio">
+            <select name="servicio" id="servicio" class="servicio" required>
+              <option disabled value="">Seleciona un servicio</option>
+              <option selected value="normal">Normal</option>
+              <option value="frances">Frances</option>
+              <option value="imperial">Imperial</option>
+            </select>
+          </label>
+        </div>
+
+        <div class="form-grupos">
+          <label for="mesas">Cantidad De Mesas</label>
+          <input type="number" id="mesas" name="mesas" placeholder="Ej. 15" />
+        </div>
+
+        <div class="form-grupos">
+          <label for="sillas">Cantidad De Sillas</label>
+          <input
+            type="number"
+            id="sillas"
+            name="sillas"
+            placeholder="Ej. 150"
+            step="10"
+          />
+        </div>
+
+        <div class="form-grupos">
+          <p>Decoracion</p>
+          <label for="servicio">
+            <select name="decoracion" id="decoracion" class="servicio" required>
+              <option disabled value="">Seleciona una decoracion</option>
+              <option selected value="sin decoracion">Sin decoracion</option>
+              <option value="normal">Normal</option>
+              <option value="flor">Flor Sencilla</option>
+              <option value="plafon">Plafon Arabe</option>
+            </select>
+          </label>
+        </div>
+
+        <div class="form-grupos">
+          <label for="pasto">Pasto Sintetico</label>
+          <input
+            type="number"
+            id="pasto"
+            name="pasto"
+            placeholder="Ej. 15"
+            min="5"
+            step="5"
+          />
+        </div>
+
+        <div class="form-grupos">
+          <label for="pista">Pista de Cristal</label>
+          <input
+            type="number"
+            id="pista"
+            name="pista de cristal"
+            min="9"
+            placeholder="Ej. 9, 12 o 24"
+          />
+        </div>
+
+        <div class="form-grupos">
+          <label for="loza">Loza y cristaleria</label>
+          <input
+            type="number"
+            id="loza"
+            name="loza"
+            placeholder="Ej. 300 personas"
+          />
+        </div>
+
+        <div class="form-grupos">
+          <label for="loza">Meseros</label>
+          <input
+            type="number"
+            id="meseros"
+            name="meseros"
+            placeholder="Ej. 10 meseros"
+          />
+        </div>
+
+        <div class="form-grupos">
+          <p class="tituloE">Extras:</p>
+
+          <label>
+            <input type="checkbox" id="invitacion" name="invitacion digital" />
+            <b>Invitacion Digital</b>
+          </label>
+
+          <label>
+            <input type="checkbox" id="mesaMisXv" name="mesa mis XV" />
+            <b>Mesa MisXV con trono</b>
+          </label>
+
+          <label>
+            <input type="checkbox" id="mesa15" name="mesa 15 " />
+            <b>Mesa 15 </b>
+          </label>
+
+          <label>
+            <input type="checkbox" id="mesaLove" name="mesa love" />
+            <b>Mesa LOVE con 2 tronos</b>
+          </label>
+
+          <label>
+            <input type="checkbox" id="baños" name="baños moviles" />
+            <b>Baños Moviles</b>
+          </label>
+
+          <label>
+            <input type="checkbox" id="juegos" name="juegos" />
+            <b>Juegos (Inflable, rockola, etc.)</b>
+          </label>
+        </div>
+
+        <div class="button">
+          <button type="submit" value="cotizar">Cotizar</button>
+        </div>
+      </form>
+
+      <div class="total-container" id="cotizacionParaEnviar">
+        <p class="titulo">Productos seleccionados:</p>
+
+        <div class="resultado" id="lista">
+          <p id="lista-productos"></p>
+        </div>
+
+        <p class="titulo">Total:</p>
+
+        <div class="resultado" id="resultado">
+          <p id="total"></p>
+        </div>
+
+        <div class="button">
+          <button
+            type="button"
+            value="enviar"
+            class="enviar"
+            id="enviarCotizacion"
+          >
+            Enviar Por Whatsapp
+          </button>
+        </div>
+      </div>
     </div>
 
     <script src="script.js"></script>
-</body>
-
+  </body>
 </html>
